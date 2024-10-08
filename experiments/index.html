@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Experiment 1</h1>
+
+    <h2>Open console to see the code function.</h2>
+
+    <script>
+        // This program takes an input of a string and returns it with the first letter of each word capitalized.
+        
+        var userString = prompt("enter a sentence");
+
+        newString = userString.replace(userString[0], userString[0].toUpperCase());
+
+        for (var i=1; i<userString.length; i++) {
+            if (newString[i]== " ") {
+                newString = newString.replace(newString[i+1], newString[i+1].toUpperCase());
+            } 
+        }
+        console.log(newString);
+        
+
+    </script>
+</body>
+</html>
