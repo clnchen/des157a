@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiment 2</title>
+
+    <style>
+
+        p {
+            font-size: 1.3em;
+        }
+
+    </style>
+</head>
+<body>
+    <h2>What if the letters in your name were replaced by different letters?</h2>
+
+    <p>Your original name was <b id="original">name</b></p>
+    <p>Your new name is <b id="new-name">name</b>!</p>
+
+
+    <script>
+        //This program takes each letter in the user's name and replaces it with another letter depending on whether it's a vowel or a consonant.
+
+        var userName = prompt("what's your name?");
+        userName = userName.replace(userName[0], userName[0].toUpperCase());
+
+        var consonant = ['b','c','d','f','g','h','j','k','l','m','n','p','q','r','s','t','v','w','x','y','z'];
+        var vowel = ['a','e','i','o','u'];
+        
+
+        function randomInt (min, max) {
+            return Math.floor(((max-min+1) * Math.random()) + min);
+        }
+
+        function randomName (name) {
+            var newName = "";
+
+            for (var i=0; i<name.length; i++) {
+                if (name[i] == 'a' || name[i] == 'e' || name[i] == 'i' || name[i] == 'o' || name[i] == 'u') {
+                    newName = newName + vowel[randomInt(0,vowel.length-1)]
+                } else {
+                    newName = newName + consonant[randomInt(0,consonant.length-1)]
+                }
+            }  
+
+            newName = newName.replace(newName[0], newName[0].toUpperCase());
+            return newName;
+        }
+
+        
+        var ogName = document.querySelector("#original");
+        ogName.innerHTML = userName;
+
+        var placeholder = document.querySelector("#new-name");
+        placeholder.innerHTML = randomName(userName);
+        
+    </script>
+</body>
+</html>

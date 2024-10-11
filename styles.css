@@ -64,8 +64,8 @@ h1 {
 
 h1 span {
     transition: font-size 1.2s;
-    margin: none;
 }
+
 h1 span:hover {
     color: black;
     font-size: 1.5em;
@@ -151,11 +151,11 @@ article span {
     line-height: 1.5em;
  }
 
- div ul li a {
+a {
     color:#AB3D3D;
  }
 
- div ul li a:hover {
+a:hover {
     color: #3a3a3a;
  }
 
