@@ -1,0 +1,92 @@
+/* resets */
+
+h1, h2, h3, p, nav ul {
+    margin: 0;
+   
+    padding: 0;
+}
+
+
+li {
+    list-style: none;
+}
+
+/* main styling */
+
+
+body, article, .content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+body {
+    margin: 30px;
+    font-family: 'Open Sans', sans-serif;
+    
+}
+
+header {
+    padding: 30px 0;
+    text-align: center;
+}
+
+h1, h2 {
+    font-weight: 600;
+}
+
+
+.title {
+    background-image: url(images/amazoncheckout.png);
+    background-size: cover;
+    background-color: rgba(15, 25, 52, 0.85);
+    background-blend-mode: multiply;
+
+    display: block;
+    padding: 20px;
+    color: white;
+}
+
+time {
+    font-size: 1.5em;
+    font-weight: 600;
+    font-family: 'Prompt', sans-serif;
+}
+.content {
+    padding: 20px;
+}
+
+p {
+    line-height: 1.1em;
+    max-width: 85%;
+    text-indent: 30px;
+}
+
+@media screen and (min-width:600px) {
+
+    body {
+    }
+
+    article{
+        flex-direction: row;
+        max-width: 90%;
+        /* margin:auto; */
+        }
+
+    .title time {
+        writing-mode: vertical-rl;
+        /* text-orientation: sideways-right ; */
+        transform: rotate(180deg);
+    }
+
+    .title {
+        flex:1;
+    }
+    .content {
+        flex:1;
+    }
+
+    
+    
+
+}
