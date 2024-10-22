@@ -8,10 +8,11 @@ body {
     justify-content: center;
 }
 
-main {
-    /* margin: auto; */
+img {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
 }
-
 header {
     display: flex;
     gap: 20px;
@@ -25,9 +26,6 @@ header div {
     background-color: antiquewhite;
 }
 
-#madlibs {
-    margin: auto;
-}
 form, .story {
     max-width: 50%;
     height: auto;
@@ -82,11 +80,6 @@ legend {
     border-style: none;
 }
 
-/* fieldset {
-    display: flex;
-    gap: 30px;
-} */
-
 fieldset {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -99,9 +92,7 @@ fieldset {
 fieldset div input, fieldset div label {
     display: block;
 }
-/* fieldset input, fieldset label {
-    display: inline;
-} */
+
 
 .story {
     background-color: #111111;
@@ -111,7 +102,7 @@ fieldset div input, fieldset div label {
     line-height: 1.3em;
 
     font-family: 'Inter', sans-serif;
-    /* opacity: 0; */
+    opacity: 0;
     
 }
 
