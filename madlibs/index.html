@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MadLibs</title>
+    <script src="script.js" defer></script>
+    <link href="styles.css" rel="stylesheet"> 
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;1,14..32,300&family=Open+Sans:ital@0;1&family=REM:ital@0;1&display=swap" rel="stylesheet">
+
+    <!-- Normalize CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+    <main>
+        <div id="madlibs">
+            <header>
+                <!-- <img src="#" alt="pfp">  -->
+                <div></div>
+                <p>AverageMicroCelebrity <br> @avgmicroceleb</p>
+            </header>
+
+            <form>
+                <h1>MadLibs</h1>
+    
+                <fieldset id="nouns">
+                    <legend>Nouns</legend>
+                    <input type="text" name="noun" id="n1">
+                    <input type="text" name="noun" id="n2">
+                    <input type="text" name="noun" id="n3">
+                </fieldset>
+    
+                <fieldset id="plural nouns">
+                    <legend>Plural Nouns</legend>
+                    <input type="text" name="pNoun" id="pn1">
+                    <input type="text" name="pNoun" id="pn2">
+                    <input type="text" name="pNoun" id="pn3">
+                    <input type="text" name="pNoun" id="pn4">
+    
+                </fieldset>
+    
+                <fieldset id="othernouns">
+                    <legend>Other Nouns</legend>
+                    
+                    <div>
+                        <label for="clothing">Clothing Item</label>
+                        <input type="text" name="oNoun" id="clothing">
+                    </div>
+    
+                    <div>
+                        <label for="location">Location</label>
+                        <input type="text" name="oNoun" id="location">
+                    </div>
+                    
+                    <div>
+                        <label for="name">Name</label>
+                        <input type="text" name="oNoun" id="name">
+                    </div>
+                    
+                    <div>
+                        <label for="bodypart">Body Part</label>
+                        <input type="text" name="oNoun" id="bodypart"> 
+                    </div>
+                    
+                </fieldset>
+    
+                <fieldset id="adjective">
+                    <legend>Adjectives</legend>
+    
+                    <input type="text" name="adj" id="adj1">
+                    <input type="text" name="adj" id="adj2">
+                    <input type="text" name="adj" id="adj3">
+                    <input type="text" name="adj" id="adj4">
+                    <input type="text" name="adj" id="adj5">
+                    <input type="text" name="adj" id="adj6">
+                    <input type="text" name="adj" id="adj7">
+                    <input type="text" name="adj" id="adj8">
+    
+                </fieldset>
+    
+                <fieldset id="adverb">
+                    <legend>Adverbs</legend>
+                    <input type="text" name="adv" id="adv">
+                </fieldset>
+    
+                <fieldset id="verb">
+                    <legend>Verbs</legend>
+                    <input type="text" name="verb" id="verb1">
+                    <input type="text" name="verb" id="verb2">
+                    <input type="text" name="verb" id="verb3">
+    
+                    <div>
+                        <label for="vIng">Verb Ending in -ing</label>
+                        <input type="text" name="verb" id="vIng">
+                    </div>
+                    
+                </fieldset>
+    
+                <input type="submit" name="submit" id="send-form" value="Post">
+            </form>
+
+        </div>
+        
+
+        <div class="story">
+            <div id="head">
+                <!-- <i class="fa fa-solid fa-chevron-left"></i> -->
+                <p id="head">Notes</p>
+            </div>
+
+            <div id="storycontent">
+                <p>
+                    Hi, this is <span class="adjective"></span> <span class="oNoun" id="name"></span> I just wanted to <span class="adverb"></span> address the recent controversy regarding what I said about <span class="adjective" class="repeat"></span> <span class="pNoun"></span> I never meant any harm, and I have the utmost respect for anyone that is <span class="adjective" class="repeat"></span>. I know my words were <span class="adjective"></span> and <span class="adjective"></span>, and for that I am truly sorry. Everyone here should know that I have 9<span class="adjective"></span> friends, so I understand the <span class="adjective"></span> impact of my actions. 
+                </p>
+            
+                <p>
+                    That being said, it is never okay to send <span class="noun"></span>threats. I have been in <span class="location"></span>, <span class="verb" id="vIng"></span> my <span class="oNoun" id="bodypart"></span> out, <span class="adjective"></span> for my life. I am just a <span class="noun"></span>. Put yourself in my <span class="oNoun" id="clothing"></span>. Who knows, maybe one day you’ll <span class="verb"></span> too! Let’s all calm down for a second, and <span class="verb"></span> our <span class="pNoun"></span>. To everyone that came to my page just to tell me to <span class="verb"></span>, thanks for the <span class="pNoun"></span> and <span class="pNoun"></span>!
+                </p>
+            
+                <p>
+                    We’re all going to move on from and laugh about this one day, and thank you to my <span class="noun"></span> crew for holding me accountable and sticking by me. Stay <span class="adjective"></span>. Love you guys!
+                </p>
+            </div>
+        
+        </div>
+
+    </main>
+</body>
+</html>

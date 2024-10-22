@@ -26,6 +26,12 @@ body {
     
 }
 
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
 header {
     padding: 30px 0;
     text-align: center;
@@ -37,7 +43,6 @@ h1, h2 {
 
 
 .title {
-    background-image: url(images/amazoncheckout.png);
     background-size: cover;
     background-color: rgba(15, 25, 52, 0.85);
     background-blend-mode: multiply;
@@ -47,6 +52,14 @@ h1, h2 {
     color: white;
 }
 
+#one .title {
+    background-image: url(images/amazoncheckout.png);
+}
+
+#two .title {
+    background-image: url(images/modal.webp);
+    background-position: center;
+}
 time {
     font-size: 1.5em;
     font-weight: 600;
@@ -60,6 +73,10 @@ p {
     line-height: 1.1em;
     max-width: 85%;
     text-indent: 30px;
+}
+
+article {
+    flex: 1;
 }
 
 @media screen and (min-width:600px) {
@@ -87,6 +104,4 @@ p {
     }
 
     
-    
-
 }
