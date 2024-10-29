@@ -26,7 +26,40 @@ header div {
     background-color: antiquewhite;
 }
 
-form, .story {
+#madlib {
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+
+}
+
+#formhead {
+    display: flex;
+    justify-content: space-between;
+
+    font-family: "REM", sans-serif;
+}
+
+#formhead h1{
+    font-size: 1.3em;
+}
+#formhead button {
+    padding: 10px 10px;
+    border-radius: 40px;
+    border-style: none;
+    font-size: 0.8em;
+
+    background-color: #ffd52e;
+}
+
+#formhead img {
+    height: 30px;
+    width: 30px;
+}
+
+#myForm, #story {
     max-width: 50%;
     height: auto;
     margin: auto;
@@ -34,24 +67,30 @@ form, .story {
     padding: 60px;
 
 
-}
+} 
 
-form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+#myForm {
     gap: 30px;
 
     border: solid black;
 
     background-color: #AAB8C2;
     color: black;
+    display: inline-block;
+
+    overflow-y: scroll;
+    max-height: 50%;
+
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 50vw;
+    height: 90vh;
+
 }
 
-form h1 {
-    font-family: "REM", sans-serif;
-    font-size: 1.3em;
-}
 
 input, label {
     display: block;
@@ -85,7 +124,7 @@ fieldset {
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     border-style: none;
-    margin: 0;
+    margin: 20px 0;
     padding: 0;
 }
 
@@ -93,8 +132,7 @@ fieldset div input, fieldset div label {
     display: block;
 }
 
-
-.story {
+#story {
     background-color: #111111;
     border: solid #AAB8C2 1px;
     max-height: 80%;
@@ -102,18 +140,22 @@ fieldset div input, fieldset div label {
     line-height: 1.3em;
 
     font-family: 'Inter', sans-serif;
-    opacity: 0;
-    
+    font-size: 0.9em;    
 }
 
-.story #head {
-    /* display: flex; */
+#story #head {
     color: #ffd52e;
 }
 
-.story #storycontent {
+#story #storycontent {
     width: 70%;
 }
 
+.hidden {
+    display: none;
+}
 
+.showing {
+    display: block;
+}
 
