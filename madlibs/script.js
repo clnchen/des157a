@@ -3,7 +3,7 @@
     console.log('running js');
 
     const myForm = document.querySelector('#madlib');
-    // const story = document.querySelector('#story');
+    const story = document.querySelector('#story');
     const btn = document.querySelector('#send-form');
     const randomize = document.querySelector('#random');
 
@@ -26,6 +26,8 @@
     function replaceNouns() {
         for (let i=0; i<nouns.length; i++) {
             const userInput = nouns[i].value;
+            storyNouns[i].innerHTML = userInput;
+
         } 
     }
 
@@ -54,14 +56,18 @@
         for (let i=0; i<adjectives.length; i++) {
             const userInput = adjectives[i].value;
 
-            if (storyAdj[i].id === "repeat"){
-                // adjectives.push(userInput);
-                storyAdj[i].innerHTML = adjectives[i-1].value;
+            if (i==0){
+                const capitalized = userInput.replace(userInput[0], userInput[0].toUpperCase());
+                storyAdj[i].innerHTML = capitalized;
+            } else if (i==1){
+                const repeated = document.querySelector('#repeat');
+                repeated.innerHTML = userInput;
+                storyAdj[i].innerHTML = userInput;
+
             } else {
                 storyAdj[i].innerHTML = userInput;
             }
 
-            // storyAdj[i].innerHTML = userInput;
         } 
     }
 
@@ -72,7 +78,7 @@
         } 
     }
 
-    function replaceVerbs(){
+    function replaceVerbs() {
         for (let i=0; i<verbs.length; i++) {
             const userInput = verbs[i].value;
             storyVerb[i].innerHTML = userInput;
@@ -88,7 +94,7 @@
 
     myForm.addEventListener('submit', function(e){
         e.preventDefault();
-        myForm.className = 'hidden';
+        story.className = 'showing';
         
 
         replaceNouns();

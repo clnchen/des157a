@@ -5,7 +5,7 @@ body {
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
 }
 
 img {
@@ -24,15 +24,6 @@ header div {
     width: 50px;
     height: 50px;
     background-color: antiquewhite;
-}
-
-#madlib {
-    position:absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-
 }
 
 #formhead {
@@ -74,8 +65,8 @@ header div {
 
     border: solid black;
 
-    background-color: #AAB8C2;
-    color: black;
+    background-color: #000000;
+    color: white;
     display: inline-block;
 
     overflow-y: scroll;
@@ -88,7 +79,6 @@ header div {
 
     width: 50vw;
     height: 90vh;
-
 }
 
 
@@ -117,6 +107,8 @@ legend {
     padding: 20px 40px;
     border-radius: 40px;
     border-style: none;
+
+
 }
 
 fieldset {
@@ -135,12 +127,20 @@ fieldset div input, fieldset div label {
 #story {
     background-color: #111111;
     border: solid #AAB8C2 1px;
-    max-height: 80%;
-    width: auto;
     line-height: 1.3em;
 
     font-family: 'Inter', sans-serif;
     font-size: 0.9em;    
+
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 50vw;
+    height: 50vh;
+
+    overflow-y: scroll;
 }
 
 #story #head {
@@ -148,7 +148,7 @@ fieldset div input, fieldset div label {
 }
 
 #story #storycontent {
-    width: 70%;
+    width: 60%;
 }
 
 .hidden {

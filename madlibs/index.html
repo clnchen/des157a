@@ -27,7 +27,8 @@
     </header>
 
 
-    <section id="madlib" class="showing">
+
+    <main id="madlib">
         <form id="myForm">
             <div id="formhead">
                 <h1>MadLibs</h1>
@@ -86,8 +87,8 @@
                 <input type="text" name="adj" id="adj6" required>
                 <input type="text" name="adj" id="adj7" required>
                 <input type="text" name="adj" id="adj8" required>
-                <input type="text" name="adj" id="adj9" required>
-                <input type="text" name="adj" id="adj10" required>
+
+                
 
 
 
@@ -95,7 +96,7 @@
 
             <fieldset id="adverbs">
                 <legend>Adverbs</legend>
-                <input type="text" name="adv" id="adv" required>
+                <input type="text" name="adverb" id="adv" required>
             </fieldset>
 
             <fieldset id="verbs">
@@ -106,7 +107,7 @@
 
                 <div>
                     <label for="vIng">Verb Ending in -ing</label>
-                    <input type="text" name="verb" id="vIng" required>
+                    <input type="text" name="vIng" id="vIng" required>
                 </div>
                 
             </fieldset>
@@ -114,16 +115,16 @@
             <input type="submit" name="submit" id="send-form" value="Post" form="myForm">
 
         </form>
-    </section>
+    </main>
 
-    <main id="story">
+    <section id="story" class="hidden">
         <div id="head">
             <p>Notes</p>
         </div>
 
         <div id="storycontent">
             <p>
-                Hi, this is <span class="adj"></span> <span class="oNoun" id="sName">.</span> I just wanted to <span class="adverb"></span> address the recent controversy regarding what I said about <span class="adj"></span> <span class="pNoun"></span>. I never meant any harm, and I have the utmost respect for anyone that is <span class="adj" id="repeat"></span>. I know my words were <span class="adj"></span> and <span class="adj"></span>, and for that I am truly sorry. Everyone here should know that I have <span class="adj"></span> friends, so I understand the <span class="adj"></span> impact of my actions.
+                Hi, this is <span class="adj"></span> <span class="oNoun" id="sName"></span>. I just wanted to <span class="adverb"></span> address the recent controversy regarding what I said about <span class="adj"></span> <span class="pNoun"></span>. I never meant any harm, and I have the utmost respect for anyone that is <span id="repeat"></span>. I know my words were <span class="adj"></span> and <span  class="adj"></span>, and for that I am truly sorry. Everyone here should know that I have <span class="adj"></span> friends, so I understand the <span class="adj"></span> impact of my actions.
             </p>
         
             <p>
@@ -134,8 +135,11 @@
                 We’re all going to move on from and laugh about this one day, and thank you to my <span class="noun"></span> crew for holding me accountable and sticking by me. Stay <span class="adj"></span>. Love you guys!
             </p>
         </div>
+    </section>
 
-    </main>
+
+
+  
 
 </body>
 </html>
