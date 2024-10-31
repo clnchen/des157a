@@ -52,6 +52,10 @@ h1, h2 {
     color: white;
 }
 
+figure {
+    margin: 10px 0 0 0;
+
+}
 #one .title {
     background-image: url(images/amazoncheckout.png);
 }
@@ -63,6 +67,11 @@ h1, h2 {
 
 #three .title {
     background-image: url(images/visthinking.jpg);
+    background-position: center;
+}
+
+#four .title {
+    background-image: url(images/stinkytofu.png);
     background-position: center;
 }
 
