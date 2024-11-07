@@ -1,0 +1,86 @@
+body {
+    margin: 30px;
+}
+
+header h1 {
+    font-family: "Funnel Sans", sans-serif;
+    letter-spacing: 3px;
+    padding:20px;
+    margin: 30px 0;
+    text-align: center;
+    font-size: 2.5em;
+}
+
+section {
+    /* height: 100vh; */
+    width: auto;
+}
+
+#basic {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 30px;
+}
+
+#basic img {
+    /* max-height: 20%; */
+    /* width: auto; */
+    transition: all 500ms;
+}
+
+#basic img:hover{
+    /* test */
+    transition: height 500ms;
+    height:300px;
+    width: auto;
+}
+
+#intermediate {
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    /* box-shadow:rgba(0,0,0,.5) 5px 5px; */
+    border-radius: 10px;
+    filter: drop-shadow(0 0 0.75rem rgba(0,0,0,0.5));
+    padding: 90px;
+    margin: 50px;
+}
+
+#intermediate div {
+    display: block;
+    margin: auto;
+}
+
+#intermediate img {
+    display: block;
+    margin: auto;
+    /* max-height: 80%; */
+    /* width: auto; */
+}
+
+#advanced {
+    display: flex;
+    justify-content: space-evenly;
+    max-height: 80%;
+    width: auto;
+}
+
+#advanced img {
+    display: block;
+    margin: auto 0;
+    max-height: 80%;
+    width: auto;
+}
+
+#hovers {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 30px 0;
+}
+
+.placeholdSq {
+    background-color: green;
+    height: 60px;
+    width: 60px;
+}
