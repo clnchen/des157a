@@ -3,7 +3,7 @@
     console.log('reading JS');
 
     //basic
-    
+
     const banner = document.querySelector('.a');
     const bannerwidth = banner.offsetWidth;
     const cloned = banner.cloneNode(true);
@@ -88,12 +88,14 @@
 
     hovers.forEach(function(eachIcon){
         eachIcon.addEventListener('mouseover', zoomPhoto);
-        eachIcon.addEventListener('mouseout', function(){
+        eachIcon.addEventListener('mouseout', function(e){
             bigpic.className = 'start';
+            e.target.style.filter = 'none';
         })
     })
 
     function zoomPhoto(e){
+        e.target.style.filter = 'drop-shadow(0 0 0.75rem rgba(14, 19, 41, 0.5)'
         const thisIcon = e.target.id;
         console.log(thisIcon);
 
