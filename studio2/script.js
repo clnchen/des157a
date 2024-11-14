@@ -95,7 +95,7 @@
     })
 
     function zoomPhoto(e){
-        e.target.style.filter = 'drop-shadow(0 0 0.75rem rgba(14, 19, 41, 0.5)'
+        e.target.style.filter = 'drop-shadow(0 0 0.8rem rgba(0,0,0, 0.3)'
         const thisIcon = e.target.id;
         console.log(thisIcon);
 
