@@ -25,37 +25,62 @@
         <h1>cait's showcase</h1>
     </header>
 
-    <section id="basic">
+    <section id="basic" class = "animate">
         <!-- moving carousel/strip -->
         <div id="imageContainer">
-            <img src="images/card1.png" alt="card1" height="200">
-            <img src="images/card1.png" alt="card1" height="200">
-            <img src="images/card1.png" alt="card1" height="200">
-            <img src="images/card1.png" alt="card1" height="200">
-            <img src="images/card1.png" alt="card1" height="200">
-            <img src="images/card1.png" alt="card1" height="200">
+            <div class="a">
+                <img src="images/card1.png" alt="card1" height="200">
+                <img src="images/card2.png" alt="card1" height="200">
+                <img src="images/card3.png" alt="card1" height="200">
+                <img src="images/card4.png" alt="card1" height="200">
+                <img src="images/card5.png" alt="card1" height="200">
+                <img src="images/card6.png" alt="card1" height="200">
+                <img src="images/card7.png" alt="card1" height="200">
+                <img src="images/card8.png" alt="card1" height="200">
+                <img src="images/card9.png" alt="card1" height="200">
+            </div>
         </div>
-        
-        
     </section>
 
     <section id="intermediate">
-        <div>
-            <p>put some icons in here</p>
+        <div id="colorOptions">
+            <div id="colorButtons">
+                <button id="grayscale" class="colorbtn" ></button>
+                <button id="invert" class="colorbtn" ></button>
+                <button id="blur" class="colorbtn" ></button>
+    
+            </div>
+
+            <input type="range" min="1" max="180" value="1" id="mySlider" class="slider" >
         </div>
-        <img src="images/smiski1.png" alt="smiski1" id="myimage" height="400">
-        <!-- <img src="images/smiski2.png" alt="smiski2">
-        <img src="images/smiski3.png" alt="smiski3"> -->
+
+        <div id="intermediateContent">
+            <div id="slideImage">
+            <img src="images/smiski1.png" alt="smiski1" id="myimage" height="400" class="normal">
+            </div>
+        
+            <div id="buttons">
+                <button id="previous">previous</button>
+                <button id="next">next</button>
+            </div>
+        </div>
+        
     </section>
 
     <section id="advanced">
         <div id="hovers">
-            <div class="placeholdSq"></div>
-            <div class="placeholdSq"></div>
-            <div class="placeholdSq"></div>
+            <img src="images/icons/icon1.png" alt="icon1" height="400" id  ='smFlute' class="icon">
+            <img src="images/icons/icon2.png" alt="icon2" height="400" id='smPeek' class="icon">
+            <img src="images/icons/icon3.png" alt="icon3" height="400" id="smWeight" class="icon">
+            <img src="images/icons/icon4.png" alt="icon4" height="400" id="smSquat" class="icon">
+            <img src="images/icons/icon5.png" alt="icon5" height="400" id="smSmell" class="icon">
+            <img src="images/icons/icon6.png" alt="icon6" height="400" id="smPaper" class="icon">
         </div>
-        <!-- placeholder picture -->
-        <img src="images/bigpic.png" alt="bigpic">
+
+        <div id=container>
+            <img src="images/bigpic2.png" alt="bigpic" id="bigpic" class="start">
+        </div>
+        
     </section>
 </body>
 </html>

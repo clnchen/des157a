@@ -1,3 +1,10 @@
+:root {
+    --sliderwidth: 0;
+    --currentleft: 0;
+    --newleft: 0;
+    --newend: 0;
+}
+
 body {
     margin: 30px;
 }
@@ -20,12 +27,23 @@ section {
     display: flex;
     justify-content: space-evenly;
     padding: 30px;
+    position:relative;
+    /* margin: 40px; */
+    height: 200px;
 }
 
 #basic img {
     /* max-height: 20%; */
     /* width: auto; */
     transition: all 500ms;
+}
+
+#imageContainer {
+    display: flex;
+    position: absolute;
+    top:0;
+    left: 0;
+    height: 100%;
 }
 
 #basic img:hover{
@@ -47,7 +65,6 @@ section {
 }
 
 #intermediate div {
-    display: block;
     margin: auto;
 }
 
@@ -58,29 +75,219 @@ section {
     /* width: auto; */
 }
 
-#advanced {
-    display: flex;
-    justify-content: space-evenly;
-    max-height: 80%;
-    width: auto;
-}
-
-#advanced img {
-    display: block;
-    margin: auto 0;
-    max-height: 80%;
-    width: auto;
-}
-
-#hovers {
+#intermediateContent {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    margin: 30px 0;
 }
 
-.placeholdSq {
-    background-color: green;
-    height: 60px;
-    width: 60px;
+.color {
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+}
+
+#colorOptions {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+/* blend modes */
+
+.normal {
+    mix-blend-mode: normal;
+}
+
+.difference {
+    mix-blend-mode: difference;
+}
+
+.grayscale {
+    filter: grayscale(1);
+}
+
+.blur {
+    filter:blur(5px);
+}
+
+.invert {
+    filter: invert(1);
+}
+
+.huechange {
+    filter: hue-rotate(90deg);
+}
+
+/* blend mode icons */
+.colorbtn {
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+}
+
+#grayscale {
+
+}
+
+#invert {
+
+}
+
+#blur {
+    background-color: rgb(105, 165, 193);
+    filter:blur(5px);
+}
+
+#advanced {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: space-evenly;
+    max-height: 80%;
+    width: auto;
+    margin: 50px;
+}
+
+#hovers, #container {
+    margin: 0 auto;
+}
+#advanced #hovers {
+    display: flex;
+    gap: 40px;
+   
+}
+
+#advanced .icon {
+    max-height: 100px;
+    width: auto;
+}
+
+#advanced #container {
+    /* max-width: 80%; */
+    width: 800px;
+    height: 600px;
+    position: relative;
+    overflow: hidden;
+}
+
+#container div {
+    position: absolute;
+    width: 200px;
+    height: 100px;
+}
+
+#advanced #bigpic {
+    display: block;
+    margin: auto 0;
+    /* max-width: 100%;
+    height: auto; */
+    position: absolute;
+    transition: all 3s ease;
+    /* top: 0;
+    left: 0; */
+}
+
+.start {
+    width: 800px;
+    height: 600px;
+    top: 0;
+    left: 0;
+}
+
+/* hotspots */
+/* #smPeek {
+    top: 459px;
+    left: 315px;
+}
+
+#smFlute {
+    top: 365px;
+    left: 319px;
+}
+
+#smWeight {
+    top: 647px;
+    left: 216px;
+}
+
+#smSquat {
+    top: 658px;
+    left: 375px;
+}
+
+#smSmell {
+    top: 251px;
+    left: 348px;
+}
+
+#smPaper {
+    top: 124px;
+    left: 325px;
+} */
+
+.smFlute,
+.smPeek,
+.smWeight,
+.smSquat,
+.smSmell,
+.smPaper {
+    width: 2400px;
+    height: 1800px;
+}
+
+.smFlute {
+    top: -848px;
+    left: -719px;
+ 
+}
+
+.smPeek {
+    top: -848px;
+    left: -1000px;
+}
+
+.smWeight {
+    top: -480px;
+    left: -1550px;
+}
+
+.smSquat {
+    top: -940px;
+    left: -1550px;
+}
+
+.smSmell {
+    top: -848px;
+    left: -360px;
+}
+
+.smPaper {
+    top: -848px;
+    left: -100px;
+}
+
+.start {
+    width: 800px;
+    height: 600px;
+    top: 0;
+    left: 0;
+}
+.animate {
+    animation-name: moveBanner;
+    animation-duration: 50s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+.a,.b {
+    display: flex;
+    gap: 10px;
+    z-index: 1;
+}
+@keyframes moveBanner {
+    from {left: 0}
+    to {left: var(--bannerwidth)}
+}
+
+@keyframes continueSlider {
+    from { left: var(--currentleft); }
+    to { left: var(--newend); }
 }
