@@ -221,3 +221,12 @@ progress::-webkit-progress-value {
     /* background-color: black; */
 
 }
+
+footer {
+    font-size: 0.8em;
+    font-family: "Funnel Sans", serif;
+    text-align: right;
+    position: absolute;
+    bottom: 5%;
+    right: 100px;
+}
