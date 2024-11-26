@@ -12,34 +12,79 @@
     <link href="styles.css" rel="stylesheet">
 
     <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Funnel+Sans:ital@0;1&display=swap" rel="stylesheet">
+
+    <!-- normalize css -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+
+    
+
 </head>
 <body>
-    <section id="display">
-        <div id="top">
-            <div class="playerstat" id="statone">
-                <p>player 1</p>
-                <div class="healthbar"></div>
+    <main id="game">
+        <section id="display">
+            <div id="top">
+                <div class="playerstat" id="statone">
+                    <p>player 1</p>
+                    <div class="status">
+                        <progress value="50" max="50" id="healthone" class="healthbar"></progress>
+                        <p id="healthvalone">50</p>
+                    </div>
+                    
+                </div>
+    
+                <div id="dice">
+                    <img src="images/dice1.png" height="50" width="50" alt="dice1">
+                    <img src="images/dice1.png" height="50" width="50" alt="dice2">
+                </div>
+    
+                <div class="playerstat" id="stattwo">
+                    <p>player 2</p>
+                    <div class="status">
+                        <p id="healthvaltwo">50</p>
+                        <progress value="50" max="50" id="healthtwo" class="healthbar"></progress>
+                    </div>
+
+                </div>
             </div>
-
-            <div id="dice">
-                <div class="square"></div>
-                <div class="square"></div>
+    
+            <div id="playerimgs">
+                    <img src="images/player1.gif" alt="player1">
+              
+                    <img src="images/player2.gif" alt="player2">
             </div>
+    
+        </section>
+    
+        <div id="tempscore"></div>
 
-            <div class="playerstat" id="stattwo">
-                <p>player 2</p>
-                <div class="healthbar"></div>
+        <section id="actions"></section>
+
+
+    </main>
+    
+    <section id="overlay" class="showing">
+        <article>
+            <div id="overlaycontent">
+                <div id="rules">
+                    <h1>How to Play</h1>
+                    <p>1. Choose one person to be player 1, and another to be player 2<br>
+                        2. The strength of your attacks is decided by the sum of the dice<br>
+                        3. If you roll a 1, it becomes the next player's turn<br>
+                        4. If both dice are 1s, your opponent gets healed to full health<br>
+                        5. The game ends once either player loses all their health </p>
+            
+                </div>
+                <div id="startbutton">
+                    <button id="startgame">start</button>
+                </div>
             </div>
-        </div>
-
-        <div id="playerimgs">
-
-        </div>
-
-    </section>
-
-    <section id="actions">
-        
+           
+            
+        </article>
     </section>
 </body>
 </html>

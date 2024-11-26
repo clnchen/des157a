@@ -1,10 +1,104 @@
-body, div, p {
+body, main, div, p {
     padding: 0;
     margin: 0;
 }
 
 body {
-    margin: 30px;
+    max-height: 100%;
+    width: auto;
+    font-family: 'Press Start 2P', system-ui;
+
+}
+
+/* overlay */
+.hidden {
+    display: none;
+}
+
+.showing {
+    display: block;
+}
+
+#overlay {
+    position: absolute;
+    background-color: rgba(0,0,0,0.5);
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+#overlay article {
+    box-sizing: border-box;
+    background-color:#fff;
+    padding: 20px;
+    width: 50vw;
+    height: 50vh;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-around; */
+    gap: 40px;
+}
+
+#overlaycontent {
+    margin: auto;
+}
+#overlay #startbutton {
+    max-width: fit-content;
+    margin: 0 auto;
+    flex: 1;
+
+}
+
+#startgame {
+    background-color: rgb(255, 211, 116);
+    color: rgb(0, 0, 0);
+    border: solid black 5px;
+    padding: 20px;
+}
+
+#overlay #rules {
+    margin: 40px;
+    flex:1;
+    line-height: 25px;
+}
+#overlay h1 {
+    font-size: 1.2em;
+    text-align: center;
+}
+#overlay p {
+    font-family: "Funnel Sans", serif;
+}
+
+
+
+
+/* game */
+#game {
+    /* height: 100vh; */
+    height: 80vh;
+    width: auto;
+    margin: 90px;
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+    /* justify-content: space-between; */
+
+    /* font-family: 'Press Start 2P', system-ui; */
+}
+
+#display {
+    flex: 2;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
 }
 
 #top {
@@ -17,10 +111,9 @@ body {
     gap: 10px;
 }
 
-.square {
+#dice img {
     height: 50px;
     width: 50px;
-    background-color: black;
 }
 
 .healthbar {
@@ -28,14 +121,103 @@ body {
     width: 180px;
     border: solid black 2px;
     border-radius: 5px;
+    /* color: pink; */
+    transition: all 500ms;
 }
+
+progress::-webkit-progress-value {
+    background-color: rgb(180, 250, 178);
+    /* border-radius: 7px; */
+    transition: all 500ms;
+    
+  }
 
 .playerstat {
     display: flex;
     flex-direction: column;
     gap: 5px;
+    font-size: 0.8em;
+}
+
+.status {
+    display: flex;
+    gap: 10px;
+}
+.selected {
+    color: red;
 }
 
 #stattwo p{
     text-align: right;
+}
+
+#actions {
+    height: 25vh;
+    border: solid black 5px;
+    margin: 0 ;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+} 
+
+#actions #moves {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+#actions img {
+    max-height: 100%;
+    width: auto;
+}
+
+#roll, #pass {
+    flex:1;
+}
+#actions button {
+    font-size: 1.2em;
+    /* flex: 1; */
+    padding: 30px 50px;
+    background-color: white;
+    border: solid black 5px;
+}
+
+#roll:hover {
+    background-color: red;
+    color: white;
+}
+
+#pass:hover{
+    background-color: blue;
+    color: white;
+}
+
+#forfeit:hover {
+    background-color: rgb(111, 129, 111);
+    color: white;
+}
+
+#actions #forfeit  {
+    font-size: 1em;
+    padding: 20px 40px;
+}
+
+#restart {
+    background-color: blue;
+}
+
+#playerimgs {
+    /* position: absolute; */
+    /* bottom: 0; */
+    display: flex;
+    justify-content: space-between;
+}
+#playerimgs img {
+    /* margin: auto; */
+    display: block;
+    max-height: 200px;
+    width: auto;
+    /* background-color: black; */
+
 }
