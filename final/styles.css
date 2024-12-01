@@ -1,29 +1,404 @@
+body, main, div, p {
+    padding: 0;
+    margin: 0;
+}
+
 body {
-    margin: 50px 120px;
-    padding: 70px;
-    display: flex;
-    gap: 80px;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    line-height: 25px;
-    border: solid black 2px;
-    border-radius: 10px;
+    max-height: 100%;
+    width: auto;
+    font-family: 'Press Start 2P', system-ui;
+
 }
 
-#one, #two {
-    flex: 1;
+/* overlay */
+.hidden {
+    display: none;
 }
 
-#one {
+.showing {
+    display: block;
+}
+
+#overlay {
+    position: absolute;
+    background-color: rgba(0,0,0,0.5);
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+#overlay article {
+    box-sizing: border-box;
+    background-color:#fff;
+    padding: 20px;
+    width: 50vw;
+    height: 50vh;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
     display: flex;
     flex-direction: column;
+    /* justify-content: space-around; */
+    gap: 40px;
+}
+
+.overlaycontent {
+    margin: auto;
+}
+
+#nextbutton, #startbutton {
+    max-width: fit-content;
+    margin: 0 auto;
+    flex: 1;
+
+}
+
+#next, #startgame {
+    background-color: rgb(255, 211, 116);
+    color: rgb(0, 0, 0);
+    border: solid black 5px;
+    padding: 20px;
+}
+
+#overlay #rules {
+    margin: 40px;
+    flex:1;
+    line-height: 25px;
+}
+#overlay h1 {
+    font-size: 1.2em;
+    text-align: center;
+}
+#overlay p {
+    font-family: "Funnel Sans", serif;
+}
+
+.currentoverlay {
+    display: block;
+}
+
+.hiddenoverlay {
+    display: none;
+}
+
+#secondcontent {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+#secondoverlay div {
+    flex:1;
+}
+
+#names {
+    display: flex;
+    /* justify-content: space-between; */
+    gap: 80px;
+    margin: auto;
+}
+
+#names div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#names div input {
+    max-width: 170px;
+    margin: auto;
+    font-family: "Funnel Sans", serif;
+    
+}
+
+
+
+/* game */
+#game {
+    /* height: 100vh; */
+    height: 80vh;
+    width: auto;
+    margin: 90px;
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+    /* justify-content: space-between; */
+
+    /* font-family: 'Press Start 2P', system-ui; */
+}
+
+#display {
+    flex: 2;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+}
+
+#top {
+    display: flex;
     justify-content: space-between;
 }
 
-h2 {
-    font-size: 1.3em;
+
+.healthbar {
+    height: 15px;
+    width: 180px;
+    border: solid black 2px;
+    border-radius: 5px;
+    /* color: pink; */
+    transition: all 500ms;
 }
 
-div {
-    padding: 30px 100px 30px 0 ;
-    border-bottom: solid rgb(162, 162, 162) 2px;
+progress::-webkit-progress-value {
+    background-color: rgb(180, 250, 178);
+    /* border-radius: 7px; */
+    transition: all 500ms;
+    
+  }
+
+.playerstat {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 0.8em;
+}
+
+.status {
+    display: flex;
+    gap: 10px;
+}
+.selected {
+    color: red;
+}
+
+#stattwo p{
+    text-align: right;
+}
+
+#actions {
+    height: 25vh;
+    border: solid black 5px;
+    margin: 0 ;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+} 
+
+#actions #moves {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+#actions img {
+    max-height: 100%;
+    width: auto;
+}
+
+#actions p {
+    margin: auto;
+}
+
+#roll, #pass {
+    flex:1;
+}
+#actions button {
+    font-size: 1.2em;
+    /* flex: 1; */
+    padding: 30px 50px;
+    background-color: white;
+    border: solid black 5px;
+}
+
+#roll:hover {
+    background-color: red;
+    color: white;
+}
+
+#pass:hover{
+    background-color: blue;
+    color: white;
+}
+
+#forfeit:hover {
+    background-color: rgb(111, 129, 111);
+    color: white;
+}
+
+#actions #forfeit  {
+    font-size: 1em;
+    padding: 20px 40px;
+}
+
+#restart {
+    background-color: blue;
+}
+
+footer {
+    font-size: 0.8em;
+    font-family: "Funnel Sans", serif;
+    text-align: right;
+    position: absolute;
+    bottom: 5%;
+    right: 100px;
+}
+
+/* sprites */
+
+#playerimgs {
+    /* position: absolute; */
+    /* bottom: 0; */
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.character {
+    /* display: block; */
+
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+}
+
+/* .character {
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+} */
+
+.spritesheet {
+    position: relative;
+}
+
+.idle {
+    animation: moveIdle 1s steps(2) infinite;
+    image-rendering: pixelated;
+    height: 1000px;
+}
+
+.active {
+    animation: moveActive 1s steps(2) infinite;
+    image-rendering: pixelated;
+    height: 1000px;
+    top: -200px;
+}
+
+.fight {
+    animation: moveFight 1s steps(11) 1;
+    image-rendering: pixelated;
+    height: 1000px;
+    top: -400px;
+}
+
+.defeat {
+    animation: defeated 1s steps(3) 1 forwards;
+    image-rendering: pixelated;
+    height: 1000px;
+    top: -600px;
+}
+
+.celebrate {
+    animation: celebrate 1s steps(3) infinite;
+    image-rendering: pixelated;
+    height: 1000px;
+    top: -800px;
+}
+
+
+@keyframes moveIdle {
+    from {
+        transform: translate3d(0px, 0, 0);
+    }
+    to {
+        transform: translate3d(-400px, 0, 0);
+    }
+}
+
+@keyframes moveActive {
+    from {
+        transform: translate3d(0px, 0, 0);
+    }
+    to {
+        transform: translate3d(-400px, 0, 0);
+    }
+}
+
+@keyframes moveFight {
+    from {
+        transform: translate3d(0px, 0, 0);
+    }
+    to {
+        transform: translate3d(-100%, 0, 0);
+    }
+}
+
+@keyframes defeated {
+    from {
+        transform: translate3d(0px, 0, 0);
+    }
+    to {
+        transform: translate3d(-600px, 0, 0);
+
+        opacity: 1;
+    }
+}
+
+@keyframes celebrate {
+    from {
+        transform: translate3d(0px, 0, 0);
+    }
+    to {
+        transform: translate3d(-600px, 0, 0);
+    }
+}
+
+/* dice animation */
+
+:root {
+    --pixel-size: 1;
+}
+
+#diceImgs {
+    display: flex;
+    gap: 10px;
+}
+
+.dice {
+    height: 40px;
+    width: 40px;
+
+    height: calc(40px * var(--pixel-size));
+    width: calc(40px * var(--pixel-size));
+
+    overflow: hidden;
+}
+
+.dicesheet {
+    /* height: 40px; */
+    width: calc(120px * var(--pixel-size));
+    image-rendering: pixelated;
+
+}
+
+.rolling {
+    animation: diceRoll 1s steps(2) forwards;
+}
+.still {
+    translate: -80px;
+}
+
+@keyframes diceRoll {
+    from {
+        transform: translate3d(0px, 0, 0);
+    }
+    to {
+        transform: translate3d(-80px, 0, 0);
+    }
 }

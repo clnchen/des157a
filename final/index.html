@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game On!</title>
+
+    <!-- script -->
+    <script src="script.js" defer></script>
+
+    <!-- stylesheet -->
+    <link href="styles.css" rel="stylesheet">
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Funnel+Sans:ital@0;1&display=swap" rel="stylesheet">
+
+    <!-- normalize css -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+
+    
+
+</head>
+<body>
+    <main id="game">
+        <section id="display">
+            <div id="top">
+                <div class="playerstat" id="statone">
+                    <p>player 1</p>
+                    <div class="status">
+                        <progress value="50" max="50" id="healthone" class="healthbar"></progress>
+                        <p id="healthvalone">50</p>
+                    </div>
+                    
+                </div>
+    
+                <div id="diceImgs">
+                    <div class="dice">
+                        <img src="images/di1.png" alt="dice1" id="dice1" class="dicesheet still">
+                    </div>
+                    
+
+                    <div class="dice">
+                        <img src="images/di1.png"  alt="dice2" id="dice2" class="dicesheet still">
+                    </div>
+                    
+                </div>
+    
+                <div class="playerstat" id="stattwo">
+                    <p>player 2</p>
+                    <div class="status">
+                        <p id="healthvaltwo">50</p>
+                        <progress value="50" max="50" id="healthtwo" class="healthbar"></progress>
+                    </div>
+
+                </div>
+            </div>
+    
+            <div id="playerimgs">
+                <div class="character">
+                    <img src="images/ninsheet.png" alt="spritesheetone" class="spritesheet idle" id="playerone">
+                </div>
+
+                <div class="character">
+                    <img src="images/boxsheet.png" alt="spritesheettwo" class="spritesheet idle" id="playertwo">
+                </div>
+
+            
+            </div>
+    
+        </section>
+    
+        <section id="actions"></section>
+
+        <footer>
+            <a href="sources.html">sources</a>
+        </footer>
+    </main>
+    
+    <section id="overlay" class="showing">
+        <article>
+            <div class="overlaycontent currentoverlay" id="firstoverlay">
+                <div id="rules">
+                    <h1>How to Play</h1>
+                    <p>1. Choose one person to be player 1, and another to be player 2<br>
+                        2. The strength of your attacks is decided by the sum of the dice<br>
+                        3. If you roll a 1, it becomes the next player's turn<br>
+                        4. If both dice are 1s, your opponent gets healed to full health<br>
+                        5. The game ends once either player loses all their health </p>
+            
+                </div>
+                <div id="nextbutton">
+                    <button id="next">next</button>
+                </div>
+            </div>
+
+            <div class="overlaycontent hiddenoverlay" id="secondoverlay">
+                <form id="secondcontent">
+                    <h1>Enter your Names</h1>
+
+                    <div id="names">
+                        <div>
+                            <label for="playeronename">player one</label>
+                            <input type="text" id="playeronename" name="playeronename" required>
+                        </div>
+    
+                        <div>
+                            <label for="playertwoname">player two</label>
+                            <input type="text" id="playertwoname" name="playertwoname" required>
+                        </div>
+                        
+                    </div>
+
+                    <div id="startbutton">
+                        <input type="submit" id="startgame" value="start"></input>
+                    </div>
+                </form>
+                
+            </div>
+           
+            
+        </article>
+    </section>
+</body>
+</html>
