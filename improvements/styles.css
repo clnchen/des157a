@@ -1,0 +1,30 @@
+body {
+    font-family: 'Funnel Sans', serif;
+    margin: 70px;
+}
+
+figure {
+    width: 80vw;
+    height: auto;
+    margin: auto;
+}
+
+img {
+    max-width: 100%;
+    border: solid black 2px;
+}
+
+strong {
+    color: rgb(73, 120, 215);
+    font-weight: 600;
+}
+
+p {
+    line-height: 25px;
+    width: 80vw;
+    margin: auto;
+    padding-top: 30px;
+}
+#process h1{
+    text-align: center;
+}
