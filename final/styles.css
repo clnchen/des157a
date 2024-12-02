@@ -19,7 +19,7 @@ body {
     display: block;
 }
 
-#overlay {
+#overlay, #settingsoverlay {
     position: absolute;
     background-color: rgba(0,0,0,0.5);
     top: 0;
@@ -28,7 +28,7 @@ body {
     height: 100vh;
 }
 
-#overlay article {
+#overlay article{
     box-sizing: border-box;
     background-color:#fff;
     padding: 20px;
@@ -42,7 +42,6 @@ body {
 
     display: flex;
     flex-direction: column;
-    /* justify-content: space-around; */
     gap: 40px;
 }
 
@@ -54,7 +53,6 @@ body {
     max-width: fit-content;
     margin: 0 auto;
     flex: 1;
-
 }
 
 #next, #startgame {
@@ -115,7 +113,69 @@ body {
     
 }
 
+/* game settings styling */
+.settingshowing {
+    display: block;
+}
 
+.settinghidden {
+    display: none;
+}
+
+#settingsoverlay article {
+    box-sizing: border-box;
+    background-color:#fff;
+    border: solid black 5px;
+    padding: 20px;
+    width: 50vw;
+    height: 50vh;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    /* display: flex;
+    flex-direction: column;
+    gap: 40px; */
+}
+
+.settingscontent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 35px;
+    max-width: 50%;
+    
+    margin-top: 10%;
+    margin: 10% 10%;
+}
+
+#exitmenu {
+    border: solid black 5px;
+    background-color: white;
+    padding: 20px;
+    width: fit-content;
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+}
+
+.settingscontent input {
+    width: 250px;
+}
+
+#settingsbtn {
+    transition: transform 300ms ease-in-out;
+}
+
+.reverse {
+    transform: rotate(-90deg);
+}
+
+.rotate {
+    transform: rotate(90deg);
+}
 
 /* game */
 #game {
@@ -129,6 +189,7 @@ body {
     /* justify-content: space-between; */
 
     /* font-family: 'Press Start 2P', system-ui; */
+    /* background-color: rgb(40, 36, 98); */
 }
 
 #display {
@@ -181,6 +242,7 @@ progress::-webkit-progress-value {
 }
 
 #actions {
+    background-color: rgb(214, 207, 207);
     height: 25vh;
     border: solid black 5px;
     margin: 0 ;
@@ -231,6 +293,19 @@ progress::-webkit-progress-value {
     color: white;
 }
 
+#restart:hover {
+    background-color: rgb(255, 134, 134);
+    color: white;
+}
+
+.go {
+    border: solid gold 5px;
+}
+
+.stop {
+    border: solid black 5px;
+}
+
 #actions #forfeit  {
     font-size: 1em;
     padding: 20px 40px;
@@ -247,6 +322,9 @@ footer {
     position: absolute;
     bottom: 5%;
     right: 100px;
+
+    display: flex;
+    gap: 15px;
 }
 
 /* sprites */
@@ -381,7 +459,6 @@ footer {
 }
 
 .dicesheet {
-    /* height: 40px; */
     width: calc(120px * var(--pixel-size));
     image-rendering: pixelated;
 
@@ -391,7 +468,7 @@ footer {
     animation: diceRoll 1s steps(2) forwards;
 }
 .still {
-    translate: -80px;
+    transform: translate(-80px);
 }
 
 @keyframes diceRoll {

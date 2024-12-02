@@ -11,6 +11,16 @@
     const playerone = document.querySelector('#playerone');
     const playertwo = document.querySelector('#playertwo');
     const spriteImgs = document.querySelectorAll('.character');
+    const buttons = document.querySelectorAll('button');
+
+    const backgroundMusic = new Audio('sounds/bgmusic.mp3');
+    const clickSound = new Audio('sounds/click.mp3');
+    const sliceSound = new Audio('sounds/slice.mp3');
+    const punchSound = new Audio('sounds/punch.mp3');
+
+    clickSound.volume = 1;
+    sliceSound.volume = 1;
+    punchSound.volume = 1;
 
     const gameData = {
         dice: ['images/di1.png', 'images/di2.png', 'images/di3.png', 'images/di4.png', 'images/di5.png', 'images/di6.png'],
@@ -29,20 +39,31 @@
 
 
     nextBtn.addEventListener('click', function(){
+        clickSound.play();
+
         document.querySelector('#firstoverlay').className = 'overlaycontent hiddenoverlay';
         document.querySelector('#secondoverlay').className = 'overlaycontent currentoverlay';
     })
 
+    
     startBtn.addEventListener('click', function(e){
         e.preventDefault();
+        clickSound.play();
+
+        backgroundMusic.loop = true;
+        backgroundMusic.volume = 0.3;
+        backgroundMusic.play();
+
+        overlay.className = 'hidden';
+
+        adjustSettings();
+
         gameData.players[0] = document.querySelector('#playeronename').value;
         gameData.players[1] = document.querySelector('#playertwoname').value;
 
         document.querySelector('#statone p').innerHTML = gameData.players[0];
         document.querySelector('#stattwo p').innerHTML = gameData.players[1];
 
-
-        overlay.className = 'hidden';
 
         gameData.index = Math.round(Math.random());
         actionArea.innerHTML = `<p>${gameData.players[gameData.index]} starts</p>`
@@ -60,9 +81,20 @@
         actionArea.innerHTML = '<div id="moves"> <button id="roll">ROLL</button> <button id="pass" >PASS</button></>';
         actionArea.innerHTML += '<div> <button id="forfeit">forfeit</button></div>'
 
-        document.querySelector('#roll').addEventListener('click', throwDice);
-        document.querySelector('#pass').addEventListener('click', switchPlayer);
+        document.querySelector('#roll').addEventListener('click', function(){
+            clickSound.play();
+
+            throwDice();
+        });
+
+        document.querySelector('#pass').addEventListener('click', function(){
+            clickSound.play();
+
+            switchPlayer();
+        });
         document.querySelector('#forfeit').addEventListener('click', function(){
+            clickSound.play();
+
             gameData.index ? (gameData.health[1] = 0) : (gameData.health[0] = 0);
             applyScore();
             checkWinningCondition();
@@ -87,12 +119,12 @@
         diceone.className = 'dicesheet rolling';
         dicetwo.className = 'dicesheet rolling';
 
-
         document.querySelector('.rolling').addEventListener('animationend', function(){
-         doneRolling = true;  
-         diceone.className = 'dicesheet still';
-         dicetwo.className = 'dicesheet still'; 
-        })       
+            doneRolling = true;  
+            diceone.className = 'dicesheet still';
+            dicetwo.className = 'dicesheet still'; 
+           })
+            
         
         setTimeout(function(){
             if (gameData.rollSum == 2) {
@@ -139,7 +171,10 @@
     
                 setTimeout(function(){
                     
-                    setTimeout(playSound, 190)
+                    // setTimeout(playSound, 190)
+                    setTimeout(() => {
+                        gameData.index ? (punchSound.play()) : (sliceSound.play());
+                    }, 190);
     
                     gameData.sprites[gameData.index].className = 'spritesheet fight';
                     document.querySelector('.fight').addEventListener('animationend', function(){
@@ -171,11 +206,21 @@
     
         if (gameEnd) {
             document.querySelector('#restart').addEventListener('click', function(){
+                clickSound.play();
+
                 console.log('clicked');
                 location.reload(true);
             })
         }
+
+        setInterval(function(){
+            const restartBtn = document.querySelector('#restart');
+            // document.querySelector('#restart').style.border = 'solid yellow 2px';
+            restartBtn.className === "go" ? "stop" : "go";
+        }, 50)
     }
+
+    
 
     function applyScore(){
         document.querySelector('#healthtwo').value = gameData.health[1]; 
@@ -244,11 +289,59 @@
             stattwo.className = '');
     }
 
-    function playSound() {
-        const sliceSound = new Audio('sounds/slice.mp3');
-        const punchSound = new Audio('sounds/punch.mp3');
+    // function playSound(){
+    //     gameData.index ? (punchSound.play()) : (sliceSound.play());
+    // }
 
-        gameData.index ? (punchSound.play()) : (sliceSound.play());
+    function adjustSettings (){
+        const settingsbtn = document.querySelector('#settingsbtn');
+        settingsbtn.addEventListener('click',function(){
+            clickSound.play();
+            settingsbtn.className = 'rotate';
+
+            document.querySelector('#settingsoverlay').className = 'showing';
+            document.querySelector('#exitmenu').addEventListener('click', function(){
+                clickSound.play();
+                document.querySelector('#settingsoverlay').className = 'hidden';
+                settingsbtn.className = 'reverse'
+            })
+            
+            const bgmusicSetting = document.querySelector('#backgroundSlider');
+            const sfxSetting = document.querySelector('#sfxSlider');
+
+            bgmusicSetting.addEventListener('input', function(){
+                backgroundMusic.volume = (bgmusicSetting.value/100);
+                console.log('adjusting background')
+            })
+
+            sfxSetting.addEventListener('input', function(){
+                clickSound.volume = (sfxSetting.value/100);
+                sliceSound.volume = (sfxSetting.value/100);
+                punchSound.volume = (sfxSetting.value/100);
+
+                console.log('click volume:' + clickSound.volume);
+            })
+        })
+
+        const volumebtn = document.querySelector('#volumebtn');
+        volumebtn.addEventListener('click', function(){
+            clickSound.play();
+            console.log('volumeclicked');
+            
+            if (backgroundMusic.paused){ //music is off
+                console.log('music is off');
+                volumebtn.src = "images/volumeon.svg";
+                backgroundMusic.play();
+            } else{
+                console.log('music is on');
+                volumebtn.src = "images/volumeoff.svg";
+                backgroundMusic.pause();
+            } 
+
+            
+        })
     }
+    
 
+    
 })();

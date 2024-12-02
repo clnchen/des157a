@@ -30,34 +30,4 @@
 }
 
 
-/* process styling */
-
-#process {
-    font-family: 'Funnel Sans', serif;
-    margin: 70px;
-}
-
-#process figure {
-    width: 80vw;
-    height: auto;
-    margin: auto;
-}
-
-#process img {
-    max-width: 100%;
-    border: solid black 2px;
-}
-
-#process span {
-    color: rgb(73, 120, 215);
-}
-#process p {
-    line-height: 25px;
-    width: 80vw;
-    margin: auto;
-    padding-top: 30px;
-}
-#process h1{
-    text-align: center;
-}
 
