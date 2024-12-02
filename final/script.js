@@ -18,6 +18,7 @@
     const clickSound = new Audio('sounds/click.mp3');
     const sliceSound = new Audio('sounds/slice.mp3');
     const punchSound = new Audio('sounds/punch.mp3');
+    const dingSound = new Audio('sounds/ding.wav');
 
     clickSound.volume = 1;
     sliceSound.volume = 1;
@@ -122,6 +123,7 @@
 
         document.querySelector('.rolling').addEventListener('animationend', function(){
             doneRolling = true;  
+            dingSound.play();
             diceone.className = 'dicesheet still';
             dicetwo.className = 'dicesheet still'; 
            })
@@ -187,7 +189,7 @@
                     })
                 }, 500);
             }
-        }, 500)
+        }, 800)
         
     }
     
@@ -319,6 +321,7 @@
                 clickSound.volume = (sfxSetting.value/100);
                 sliceSound.volume = (sfxSetting.value/100);
                 punchSound.volume = (sfxSetting.value/100);
+                dingSound.volume = (sfxSetting.value/100);
 
                 console.log('click volume:' + clickSound.volume);
             })
