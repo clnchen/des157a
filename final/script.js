@@ -13,7 +13,8 @@
     const spriteImgs = document.querySelectorAll('.character');
     const buttons = document.querySelectorAll('button');
 
-    const backgroundMusic = new Audio('sounds/bgmusic.mp3');
+    // const backgroundMusic = new Audio('sounds/bgmusic.mp3');
+    const backgroundMusic = new Audio('sounds/bg2.mp3');
     const clickSound = new Audio('sounds/click.mp3');
     const sliceSound = new Audio('sounds/slice.mp3');
     const punchSound = new Audio('sounds/punch.mp3');
