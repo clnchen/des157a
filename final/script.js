@@ -13,7 +13,6 @@
     const spriteImgs = document.querySelectorAll('.character');
 
     const gameData = {
-        // dice: ['images/dice1.png', 'images/dice2.png', 'images/dice3.png', 'images/dice4.png', 'images/dice5.png', 'images/dice6.png'],
         dice: ['images/di1.png', 'images/di2.png', 'images/di3.png', 'images/di4.png', 'images/di5.png', 'images/di6.png'],
         players: ['player 1', 'player 2'],
         sprites: [playerone, playertwo],
@@ -115,7 +114,7 @@
                 setTimeout(function(){
                     setUpTurn();
                     currentPlayer();
-                }, 2700);
+                }, 2400);
                 
             } else if (gameData.roll1 === 1 || gameData.roll2 === 1){
                 console.log('rolled a 1')
@@ -123,13 +122,13 @@
                 
                 setTimeout(function(){
                     actionArea.innerHTML = `<p>you rolled a one! switching to ${gameData.players[gameData.index]}</p>`;
-                },1200);
+                }, 800);
                 
     
                 setTimeout(function(){
                     setUpTurn();
                     currentPlayer();
-                }, 2700);
+                }, 2400);
                 
     
             } else {

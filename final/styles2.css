@@ -1,5 +1,5 @@
 /* brief styling */
-#brief {
+.brief {
     margin: 50px 120px;
     padding: 70px;
     display: flex;
@@ -10,21 +10,21 @@
     border-radius: 10px;
 }
 
-#brief #one, #two {
+.brief #one, .brief #two {
     flex: 1;
 }
 
-#brief #one {
+.brief #one {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-#brief h2 {
+.brief h2 {
     font-size: 1.3em;
 }
 
-#brief div {
+.brief div {
     padding: 30px 100px 30px 0 ;
     border-bottom: solid rgb(162, 162, 162) 2px;
 }
@@ -57,7 +57,7 @@
     margin: auto;
     padding-top: 30px;
 }
-h1{
+#process h1{
     text-align: center;
 }
 
