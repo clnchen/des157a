@@ -24,7 +24,17 @@
 
 </head>
 <body>
-    <main id="game">
+
+    <main id="game" class="bgon">
+        <div id="bgcontent" class="bgshowing">
+            <div id="backclouds"></div>
+            <div id="backbuilding"></div>
+            <div id="frontclouds"></div>
+            <div id="frontbuilding"></div>
+            <div id="saturate"></div>
+            <div id="ground"></div>
+        </div>
+
         <section id="display">
             <div id="top">
                 <div class="playerstat" id="statone">
@@ -75,8 +85,8 @@
         <section id="actions"></section>
 
         <footer>
-            <img src="images/settings.svg" alt="settings" height="20" width="20" id="settingsbtn">
-            <img src="images/volumeon.svg" alt="volume" height="20" width="20" id="volumebtn">
+            <img src="images/settingswhite.svg" alt="settings" height="20" width="20" id="settingsbtn">
+            <img src="images/volumeonwhite.svg" alt="volume" height="20" width="20" id="volumebtn">
             <a href="sources.html">sources</a>
         </footer>
     </main>
@@ -133,6 +143,12 @@
     
                 <label for="sfxSlider">Sound Effects</label>
                 <input type="range" min="0" max="100" value="100" id="sfxSlider" name="sfxSlider" class="slider">
+
+                <div id="bgToggleForm">
+                    <label for="bgToggle">Background Image</label>
+                    <input type="checkbox" name="bgToggle" id="bgToggle" checked>
+                </div>
+                
 
                 <button id="exitmenu">exit</button>
     

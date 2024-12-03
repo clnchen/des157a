@@ -4,9 +4,13 @@ body, main, div, p {
 }
 
 body {
-    max-height: 100%;
-    width: auto;
+    height: 100vh;
+    width: 100vw;
     font-family: 'Press Start 2P', system-ui;
+    background-color: black;
+    position: absolute;
+    top: 0;
+    left: 0;
 
 }
 
@@ -95,7 +99,6 @@ body {
 
 #names {
     display: flex;
-    /* justify-content: space-between; */
     gap: 80px;
     margin: auto;
 }
@@ -134,10 +137,6 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-
-    /* display: flex;
-    flex-direction: column;
-    gap: 40px; */
 }
 
 .settingscontent {
@@ -150,6 +149,19 @@ body {
     margin-top: 10%;
     margin: 10% 10%;
 }
+
+#bgToggleForm {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 20px;
+}
+
+#bgToggleForm input{
+    width: 30px;
+    height: 30px;
+}
+
 
 #exitmenu {
     border: solid black 5px;
@@ -177,19 +189,15 @@ body {
     transform: rotate(90deg);
 }
 
-/* game */
+
+/* game styling*/
 #game {
-    /* height: 100vh; */
     height: 80vh;
     width: auto;
-    margin: 90px;
+    margin: 90px 90px 90px 90px;
     display: flex;
     flex-direction: column;
     gap:20px;
-    /* justify-content: space-between; */
-
-    /* font-family: 'Press Start 2P', system-ui; */
-    /* background-color: rgb(40, 36, 98); */
 }
 
 #display {
@@ -229,12 +237,24 @@ progress::-webkit-progress-value {
     font-size: 0.8em;
 }
 
+.bgon .playerstat {
+    color: white;
+}
+
+.bgoff .playerstat {
+    color: black;
+}
+
 .status {
     display: flex;
     gap: 10px;
 }
-.selected {
+.bgoff .selected {
     color: red;
+}
+
+.bgon .selected {
+    color: rgb(255, 211, 116);
 }
 
 #stattwo p{
@@ -242,16 +262,26 @@ progress::-webkit-progress-value {
 }
 
 #actions {
-    background-color: rgb(214, 207, 207);
     height: 25vh;
-    border: solid black 5px;
     margin: 0 ;
     padding: 30px;
     display: flex;
     flex-direction: column;
     gap: 20px;
     align-items: center;
+   
 } 
+
+.bgon #actions {
+    background-color: rgb(143, 115, 149);
+    border: solid rgb(255, 255, 255) 5px;
+
+}
+
+.bgoff #actions {
+    background-color: white;
+    border: solid black 5px;
+}
 
 #actions #moves {
     display: flex;
@@ -270,32 +300,46 @@ progress::-webkit-progress-value {
 #roll, #pass {
     flex:1;
 }
+
 #actions button {
     font-size: 1.2em;
-    /* flex: 1; */
     padding: 30px 50px;
     background-color: white;
     border: solid black 5px;
 }
 
-#roll:hover {
+.bgon #roll:hover {
+    background-color: #FFB5B5;
+    color: black;
+}
+
+.bgon #pass:hover{
+    background-color: #ADCBF9;
+    color: black;
+}
+
+.bgon #forfeit:hover {
+    background-color: #D2E2BD;
+    color: black;
+}
+
+.bgoff #roll:hover {
     background-color: red;
     color: white;
 }
 
-#pass:hover{
+.bgoff #pass:hover{
     background-color: blue;
     color: white;
 }
 
-#forfeit:hover {
+.bgoff #forfeit:hover {
     background-color: rgb(111, 129, 111);
     color: white;
 }
 
 #restart:hover {
-    background-color: rgb(255, 134, 134);
-    color: white;
+    background-color: rgb(255, 211, 116);
 }
 
 .go {
@@ -330,26 +374,16 @@ footer {
 /* sprites */
 
 #playerimgs {
-    /* position: absolute; */
-    /* bottom: 0; */
     display: flex;
     justify-content: space-between;
     position: relative;
 }
 
 .character {
-    /* display: block; */
-
     width: 200px;
     height: 200px;
     overflow: hidden;
 }
-
-/* .character {
-    width: 200px;
-    height: 200px;
-    overflow: hidden;
-} */
 
 .spritesheet {
     position: relative;
@@ -477,5 +511,91 @@ footer {
     }
     to {
         transform: translate3d(-80px, 0, 0);
+    }
+}
+
+/* bg styling */
+
+.bglayer {
+    height: 750px;
+    width: 1200px;
+    image-rendering: pixelated;
+}
+
+.bgshowing {
+    display: block;
+}
+
+.bghidden {
+    display: none;
+}
+
+
+#bgcontent,
+#backclouds,
+#backbuilding,
+#frontclouds,
+#frontbuilding,
+#saturate {
+    position:absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-repeat: repeat-x;
+    background-size: 560px 350px ;
+}
+
+
+.bgon #bgcontent {
+    background-image: url(images/bgimg/sky.png);
+    z-index: -1;
+}
+
+#backclouds {
+    background-image: url(images/bgimg/backclouds.png);
+    animation: playBG 150s steps(1000) infinite;
+}
+
+#backbuilding {
+    background-image: url(images/bgimg/backbuilding.png);
+}
+
+#frontclouds {
+    background-image: url(images/bgimg/frontclouds.png);
+    animation: playBG 45s steps(1000) infinite;
+
+}
+
+#frontbuilding {
+    background-image: url(images/bgimg/frontbuilding.png);
+
+}
+
+#ground {
+    position:absolute;
+    top: 20%;
+    left: 0;
+    height: 50vh;
+    width: 100vw;
+    /* z-index: -1; */
+    background-image: url(images/ground.png);
+    background-repeat: repeat-x;
+    /* background-size: 50%; */
+    background-size: 719px 450px;
+}
+
+#saturate {
+    /* background-image: url(images/bgimg/overlay.png); */
+    background-color: rgba(32, 36, 76, 0.5);
+}
+
+
+@keyframes playBG {
+    from {
+        background-position: 0% 0% ;
+    }
+    to {
+        background-position: 100vw 0% ;
     }
 }

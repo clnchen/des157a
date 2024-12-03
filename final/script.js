@@ -24,6 +24,12 @@
     sliceSound.volume = 1;
     punchSound.volume = 1;
 
+    let gameEnd = false;
+    let doneRolling = false;
+    let bgActive = true;
+    let musicOn = true;
+    let snakeEyes = false;
+
     const gameData = {
         dice: ['images/di1.png', 'images/di2.png', 'images/di3.png', 'images/di4.png', 'images/di5.png', 'images/di6.png'],
         players: ['player 1', 'player 2'],
@@ -36,8 +42,7 @@
         gameEnd: 50
     }
 
-    let gameEnd = false;
-    let doneRolling = false;
+    
 
 
     nextBtn.addEventListener('click', function(){
@@ -85,7 +90,7 @@
 
         document.querySelector('#roll').addEventListener('click', function(){
             clickSound.play();
-
+            console.log('clicked');
             throwDice();
         });
 
@@ -134,6 +139,7 @@
 
                 setTimeout(function(){
                     console.log('snake eyes');
+                    snakeEyes = true;
                     actionArea.innerHTML = `<p>snake eyes rolled<br> ${gameData.players[Math.abs(gameData.index-1)]} is healed!</p>`;
 
                     // reset opponent to full health
@@ -216,11 +222,6 @@
             })
         }
 
-        setInterval(function(){
-            const restartBtn = document.querySelector('#restart');
-            // document.querySelector('#restart').style.border = 'solid yellow 2px';
-            restartBtn.className === "go" ? "stop" : "go";
-        }, 50)
     }
 
     
@@ -292,9 +293,6 @@
             stattwo.className = '');
     }
 
-    // function playSound(){
-    //     gameData.index ? (punchSound.play()) : (sliceSound.play());
-    // }
 
     function adjustSettings (){
         const settingsbtn = document.querySelector('#settingsbtn');
@@ -334,18 +332,50 @@
             
             if (backgroundMusic.paused){ //music is off
                 console.log('music is off');
-                volumebtn.src = "images/volumeon.svg";
+                musicOn = false;
+                bgActive ? (volumebtn.src="images/volumeonwhite.svg") : (volumebtn.src = "images/volumeon.svg");
+                
                 backgroundMusic.play();
             } else{
                 console.log('music is on');
-                volumebtn.src = "images/volumeoff.svg";
+                musicOn = true;
+                bgActive ? (volumebtn.src="images/volumeoffwhite.svg") : (volumebtn.src = "images/volumeoff.svg");
+                // volumebtn.src = "images/volumeoff.svg";
+
                 backgroundMusic.pause();
             } 
 
             
         })
+
+        bgonoff();
     }
     
+    function bgonoff() {
+        const bgToggle = document.querySelector('#bgToggle');
+        const bgContent = document.querySelector('#bgcontent');
 
-    
+        bgToggle.addEventListener('input', function(){
+            if (bgToggle.checked) {
+                bgActive = true;
+                settingsbtn.src = "images/settingswhite.svg";
+                musicOn ? (volumebtn.src="images/volumeonwhite.svg") : (volumebtn.src = "images/volumeoffwhite.svg")
+                document.querySelector('#game').className = 'bgon';
+                bgContent.className = 'bgshowing';
+                document.querySelector('body').style.backgroundColor = 'black';
+
+            } else {
+                bgActive = false;
+                settingsbtn.src = "images/settings.svg";
+                musicOn ? (volumebtn.src="images/volumeon.svg") : (volumebtn.src = "images/volumeoff.svg");
+                document.querySelector('#game').className = 'bgoff'
+                bgContent.className = 'bghidden';
+                document.querySelector('body').style.backgroundColor = 'white';
+
+            }
+        })
+    }
+
+    console.log(snakeEyes);
+     
 })();
