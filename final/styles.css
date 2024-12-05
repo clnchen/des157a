@@ -173,6 +173,11 @@ body {
     right: 30px;
 }
 
+#exitmenu:hover {
+    background-color: rgb(255, 211, 116);
+
+}
+
 .settingscontent input {
     width: 250px;
 }
@@ -188,6 +193,8 @@ body {
 .rotate {
     transform: rotate(90deg);
 }
+
+
 
 
 /* game styling*/
